@@ -1,0 +1,113 @@
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import "./Login.css"
+
+const Login = () => {
+
+  const [details, setDetails]=useState({
+    code: "",
+    name: "",
+    mobile: "",
+    email: "",
+    check:false,
+  });
+
+  const [errors, setErrors]= useState({});
+  const navigate = useNavigate();
+
+  const handleChange=(e)=>{
+   const{name, value, type, checked}= e.target ;
+   setDetails((prev)=>{
+    return{...prev, [name]: type === "checkbox" ? checked : value};
+   })
+  }
+
+const validate=()=>{
+    let tempErrors ={};
+    let isValid=true;
+
+if(!details.code){
+  tempErrors.code="Code is required";
+  isValid=false;
+}
+if(!details.name){
+  tempErrors.name="Name is required";
+  isValid=false;
+}
+if(!details.email){
+  tempErrors.email="Email is required";
+  isValid=false;
+}
+
+setErrors(tempErrors)
+return isValid
+  }
+
+const handleSubmit=(e)=>{
+  e.preventDefault();
+  if(validate()){
+    console.log(details);
+    navigate("./Login")
+  }
+}
+
+  return (
+    <div className='container'>
+    <div className="home-container">
+      <div className="image-section">
+        <div className="gifts">
+          <img src="./Assets/Bannner.png" alt="" />
+        </div>
+
+      <form action="/submit" method="post" className="form" onSubmit={handleSubmit}>
+      <div className='form-section'>
+        <h2>REGISTER</h2>
+        
+        <div>
+          <input type="text" placeholder='Enter the Unique Code' onChange={handleChange}/>
+          {errors.code && <span className="error">{errors.code}</span>}
+        </div>
+
+        <div>
+          <input type="text" placeholder='Enter Name' onChange={handleChange}/>
+          {errors.name && <span className='error'>{errors.name}</span> }
+        </div>
+
+        <div>
+          <input type="Number" placeholder='Enter Mobile Number' onChange={handleChange}/>
+          {errors.phone && <span className='error'>{errors.phone}</span> }
+
+        </div>
+
+        <div>
+          <input type="email" placeholder='Enter Email ID' onChange={handleChange}/>
+          {errors.email && <span className='error'>{errors.email}</span> }
+
+        </div>
+
+        <div className='check-box'>
+            <label>
+              <input 
+                name='check' 
+                type="checkbox" 
+                onChange={handleChange}
+              />
+              I Accept the Terms & Conditions
+            </label>  
+          {errors.check && <span className='error'>{errors.ckeck}</span> }
+
+          </div>
+      </div>
+      </form>
+      
+      <div className='submit-btn'>
+            <button type="button" onClick={handleSubmit}>SUBMIT</button>
+          </div>
+       
+      </div>
+    </div>
+</div>
+  )
+}
+
+export default Login

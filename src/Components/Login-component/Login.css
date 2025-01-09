@@ -1,0 +1,97 @@
+.gifts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gifts img {
+    margin-top: 7rem;
+    max-width: 100%; /* Allow image to scale down for smaller screens */
+    height: auto;    /* Maintain aspect ratio */
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Column layout for form elements */
+    align-items: center;
+    justify-content: center; 
+    margin-top: 1rem;  
+    width: 100%;
+}
+
+.form-section {
+    position: relative; 
+    padding: 2rem;
+    color: #fff; 
+    background: transparent; 
+    border-radius: 30px;
+    width: 100%; /* Make it full-width within the container */
+    max-width: 400px; /* Prevent it from becoming too large on big screens */
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 2; /* Ensure the form content is above the background */
+}
+
+.form-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);   
+    backdrop-filter: blur(8px);
+    z-index: 0; /* Ensure the background is behind everything */
+}
+
+h2, input, .submit-btn, .check-box label, p, .error {
+    position: relative; 
+    z-index: 1; /* Ensure all form content is above the background */
+}
+
+h2 {
+    font-weight: bold;   
+    font-size: 2rem;
+}
+
+input {
+    margin: 8px 0;
+    padding: 12px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+.check-box label {
+    display: flex;
+    align-items: center;
+}
+
+.check-box input {
+    width: unset;
+    margin: 0 16px;
+}
+
+/* Error message styling */
+.error {
+    color: rgb(241, 15, 15); /* Error message color */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .form-section {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+    
+    .gifts img {
+        width: 100%; 
+        height: auto; /* Maintain aspect ratio */
+    }
+}

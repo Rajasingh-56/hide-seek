@@ -1,0 +1,17 @@
+p{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.check-box a{
+    font-weight: bold;
+    color: #F4B747;
+    margin-left: .5rem;
+}
+
+.error-message{
+    color: red; /* Change the text color to red */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-top: 5px; /* Add some space above the message */
+}

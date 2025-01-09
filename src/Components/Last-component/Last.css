@@ -1,0 +1,53 @@
+.message-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.extra {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.281);
+  backdrop-filter: blur(6px);
+}
+
+.message {
+  width: 480px;
+  height: 100vh;
+  z-index: 1;
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: 500px;
+  margin: 240px auto 0;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  background-color: #4e2f8b;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 2px #fff, 0 0 0 18px #4e2f8b;
+}
+
+.text-section img {
+  width: 200px;
+  margin-bottom: 2rem;
+}
+.text-section h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.text-section p {
+  color: #fff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
